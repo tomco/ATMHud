@@ -42,7 +42,12 @@
 #endif
 	f.origin.y -= 1;	// seems weird, but the text looks a bit better being just a pixel higher! This is how the original code worked.
 
-	UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+	UIFont *font = self.font;
+    
+    if (!font) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    }
+    
 	NSMutableParagraphStyle *paragraphStyle	= [NSMutableParagraphStyle new];
 	paragraphStyle.lineBreakMode			= NSLineBreakByWordWrapping;
 	paragraphStyle.alignment				= NSTextAlignmentCenter;

@@ -88,6 +88,7 @@
 	self.view = baseView;
 	
 	hud = [[ATMHud alloc] initWithDelegate:self];
+    hud.font = [UIFont systemFontOfSize:5];
 }
 
 - (void)viewDidLoad
@@ -228,6 +229,7 @@
 	case 3:
 	{
 		hud2 = [ATMHud new];
+        hud2.font = [UIFont systemFontOfSize:1];
 		[hud2 setCaption:@"Just a simple caption."];
 		__weak DemoViewController *weakSelf = self;
 		hud2.blockDelegate = ^(delegateMessages msg, ATMHud *h)

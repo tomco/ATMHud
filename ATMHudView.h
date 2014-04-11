@@ -25,6 +25,7 @@ typedef enum {
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
 @property (nonatomic, assign) UIActivityIndicatorViewStyle activityStyle;
+@property (nonatomic, strong) UIFont *font;
 
 @property (nonatomic, assign) BOOL showActivity;
 @property (nonatomic, assign) CGFloat progress;

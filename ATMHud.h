@@ -47,9 +47,10 @@ typedef void (^ATMblockDelegate)(delegateMessages msg, ATMHud *hud);
 
 @interface ATMHud : UIViewController
 // Properties persist from show to show
+@property (nonatomic, strong) UIFont *font;                         // default [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
 @property (nonatomic, assign) CGFloat margin;						// default 10.0f
 @property (nonatomic, assign) CGFloat padding;						// default 10.0f
-@property (nonatomic, assign) CGFloat alpha;						// default 0.8f
+@property (nonatomic, assign) CGFloat alpha;                        // default 0.8f
 @property (nonatomic, assign) CGFloat gray;							// default 0.8f
 @property (nonatomic, assign) CGFloat animateDuration;				// default 0.1f
 @property (nonatomic, assign) CGFloat progressBorderRadius;			// default 8.0f

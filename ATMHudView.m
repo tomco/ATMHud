@@ -34,7 +34,6 @@
 	CGRect				activityRect;
 	CGRect				imageRect;
 	BOOL				didHide;
-	UIFont				*bsf14;
 }
 
 - (CGPoint)integralPoint:(CGPoint)point
@@ -58,8 +57,6 @@
 		self.backgroundColor = [UIColor clearColor];
 		self.opaque = NO;
 		self.alpha = 0.0;
-		
-		bsf14 = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 	
 		_backgroundLayer = [CALayer new];
 		_backgroundLayer.cornerRadius = 10;
@@ -119,8 +116,10 @@
 	NSStringDrawingContext *sdc = [NSStringDrawingContext new];
 	sdc.minimumScaleFactor = 0;
 	
+    
+    UIFont *font = self.font ? self.font : [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 	NSParagraphStyle *paragraphStyle = [NSMutableParagraphStyle defaultParagraphStyle];	// uses LineBreakWordWrapping
-	NSDictionary *dict = @{ NSFontAttributeName : bsf14, NSParagraphStyleAttributeName : paragraphStyle };
+	NSDictionary *dict = @{ NSFontAttributeName : font, NSParagraphStyleAttributeName : paragraphStyle };
 	
 	CGRect r = [_caption boundingRectWithSize:origSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:sdc];
 	
@@ -456,6 +455,7 @@
 		cAnimation.duration = 0.001;
 		cAnimation.toValue = _caption;
 		[captionLayer addAnimation:cAnimation forKey:@"captionAnimation"];
+        captionLayer.font = _font;
 		captionLayer.caption = _caption;
 		imageLayer.contents = (id)_image.CGImage;
 		imageLayer.position = [self integralPoint:CGPointMake(imageRect.origin.x, imageRect.origin.y)];

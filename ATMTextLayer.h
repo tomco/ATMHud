@@ -13,6 +13,8 @@
 #import <QuartzCore/CALayer.h>
 
 @interface ATMTextLayer : CALayer
+
 @property (nonatomic, strong) NSString *caption;
+@property (nonatomic, strong) UIFont *font;
 
 @end

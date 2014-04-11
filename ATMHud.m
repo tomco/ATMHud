@@ -229,6 +229,12 @@
 	hudView.progress = progress;
 }
 
+- (void)setFont:(UIFont *)font
+{
+    hudView.font = font;
+}
+
+
 #pragma mark -
 #pragma mark Queue
 
